@@ -14,17 +14,20 @@ class ParentesisMatching:
 
     def _remove_element(self):
         """Remove an element from the stack"""
+
         self.stack.pop(self.pointer)
         self.pointer -= 1
 
     def is_valid(self):
         """Check if the string as a valid parentesis matching"""
-        try:
-            for char in self.string:
-                if char in ("(", "[", "{"):
-                    self._add_element(char)
 
-                elif char == ")" and self.stack[self.pointer] == "(":
+        for char in self.string:
+            if char in ("(", "[", "{"):
+                self._add_element(char)
+            else:
+                if self.pointer < 0:
+                    return False
+                if char == ")" and self.stack[self.pointer] == "(":
                     self._remove_element()
 
                 elif char == "]" and self.stack[self.pointer] == "[":
@@ -32,9 +35,6 @@ class ParentesisMatching:
 
                 elif char == "}" and self.stack[self.pointer] == "{":
                     self._remove_element()
-            if len(self.stack) != 0:
-                return False
+        if len(self.stack) == 0:
             return True
-        except IndexError as error:
-            print(error)
-            return False
+        return False
