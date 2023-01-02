@@ -15,3 +15,10 @@ repos:
             "-rn", # Only display messages
             "--rcfile=.pylintrc", # Link to your config file
           ]
+      - id: pytest
+        name: Unit Tests
+        entry: pytest
+        pass_filenames: false
+        language: system
+        types: [python]
+        args: ["-v"]
