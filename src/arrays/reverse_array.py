@@ -4,7 +4,7 @@ class ReverseArray:
     def __init__(self, input_array: list):
         self.array = input_array
 
-    def reverse(self) -> list:
+    def reverse(self) -> list[int]:
         """Reverse the input array"""
 
         reversed_array = []
