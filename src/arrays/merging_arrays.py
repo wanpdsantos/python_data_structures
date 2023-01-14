@@ -28,12 +28,18 @@ class MergeArray:
                 " - total_iterations: ",
                 total_iterations,
             )
-            if self.array[index_initial_arr] >= array_to_merge[index_arr_to_merge]:
+            if self.array[index_initial_arr] > array_to_merge[index_arr_to_merge]:
                 merged_array.append(array_to_merge[index_arr_to_merge])
                 index_arr_to_merge += 1
-            else:
+            elif self.array[index_initial_arr] == array_to_merge[index_arr_to_merge]:
+                merged_array.append(array_to_merge[index_arr_to_merge])
+                merged_array.append(self.array[index_initial_arr])
+                index_arr_to_merge += 1
+                index_initial_arr += 1
+            elif self.array[index_initial_arr] < array_to_merge[index_arr_to_merge]:
                 merged_array.append(self.array[index_initial_arr])
                 index_initial_arr += 1
+
         while index_initial_arr < len(self.array):
             merged_array.append(self.array[index_initial_arr])
             index_initial_arr += 1

@@ -15,3 +15,4 @@ def test_merging_arrays_merge() -> None:
 
     assert test_case.merge([10, 95]) == [1, 2, 10, 50, 90, 95]
     assert test_case.merge([-4, 15]) == [-4, 1, 2, 15, 50, 90]
+    assert test_case.merge([50, 80]) == [1, 2, 50, 50, 80, 90]
