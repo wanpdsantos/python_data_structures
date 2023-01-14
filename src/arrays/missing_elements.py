@@ -19,3 +19,17 @@ class MissingElements:
 
                 difference_between_index_and_element = element - index
         return missing_elements
+
+    def check_missing_elements_from_unordered_array(
+        self, input_array: list[int]
+    ) -> list[int]:
+        """Check for missing element in a list of ordered integers"""
+
+        hashmap = [0 for elem in range(0, max(input_array))]
+        missing_elements = []
+        for element in input_array:
+            hashmap[element - 1] = 1
+        for index, element in enumerate(hashmap):
+            if element == 0:
+                missing_elements.append(index + 1)
+        return missing_elements
