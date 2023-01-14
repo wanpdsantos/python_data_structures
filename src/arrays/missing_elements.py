@@ -11,7 +11,7 @@ class MissingElements:
         missing_elements = []
         for index, element in enumerate(input_array):
             if element - index != difference_between_index_and_element:
-                # required when multiple element in sequence are missing
+                # required when multiple elements in sequence are missing
                 for missing in range(
                     difference_between_index_and_element, element - index
                 ):
